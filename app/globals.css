@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
+/* Define light theme variables with a cool and light palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9fbfd;
+  --foreground: #1a2b4a;
+  --accent: #2dd4bf;
+  --secondary: #6b7280;
+  --highlight: #e0f2fe;
+  --border: #d1d5db;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Apply theme variables */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Enhance Tailwind utility classes with custom styles */
+@layer utilities {
+  .shadow-cool {
+    box-shadow: 0 4px 6px -1px rgba(45, 212, 191, 0.1), 0 2px 4px -2px rgba(45, 212, 191, 0.05);
+  }
+
+  .hover-gradient {
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .hover-gradient:hover {
+    background: linear-gradient(90deg, var(--accent), var(--highlight));
+    color: #ffffff;
+  }
+
+  .bg-highlight {
+    background-color: var(--highlight);
+  }
+
+  .border-cool {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+}
+
+/* Style links with a cool accent */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+/* Style buttons with a cool, light design */
+button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  transition: background 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+}
+
+/* Input fields with a cool, light style */
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  background: #ffffff;
+  color: var(--foreground);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
+}
+
+/* Add a subtle gradient to cards or sections */
+.card-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, var(--highlight) 100%);
+  border-radius: 10px;
+  padding: 1rem;
 }
