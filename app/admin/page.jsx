@@ -253,11 +253,11 @@ export default function AdminUserManage() {
                                             >
                                                 {user.is_active ? "Active" : "Inactive"}
                                             </span>
-                                            {user.is_deleted && (
+                                            {user.is_deleted ? (
                                                 <span className="ml-2 text-xs text-red-400 font-semibold">
                                                     (Deleted)
                                                 </span>
-                                            )}
+                                            ) : null}
                                         </td>
                                         <td>
                                             <button
