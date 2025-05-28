@@ -58,7 +58,7 @@ export default function AdminNavbar() {
                     <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
-                    <span className="text-2xl font-bold text-blue-700 tracking-tight">Finance Admin</span>
+                    <span className="text-2xl font-bold text-blue-700 tracking-tight">Finaccy Admin</span>
                 </div>
                 <div className="flex items-center gap-2">
                     

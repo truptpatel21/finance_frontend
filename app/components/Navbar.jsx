@@ -67,13 +67,13 @@ export default function Navbar() {
                     className="text-2xl font-bold text-[var(--foreground)] tracking-tight"
                     style={{ letterSpacing: "0.01em" }}
                 >
-                    Finance Manager
+                    Financyy
                 </Link>
                 <div className="flex gap-2 items-center">
                     {isLoggedIn ? (
                         <>
                             <Link
-                                href="/"
+                                href="/dashboard"
                                 className="px-4 py-2 rounded-lg text-[var(--foreground)] hover:bg-[var(--highlight)] transition"
                             >
                                 Dashboard
@@ -101,7 +101,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="/signup"
-                                className="px-4 py-2 rounded-lg bg-[var(--accent)] text-white font-semibold hover-gradient transition"
+                                    className="px-4 py-2 rounded-lg text-[var(--foreground)] hover:bg-[var(--highlight)] transition"
                             >
                                 Sign Up
                             </Link>
