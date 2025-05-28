@@ -73,7 +73,7 @@ export default function GoalsPage() {
                     deadline: "",
                 });
                 fetchGoals();
-                router.push("/")
+                router.push("/dashboard")
             } else {
                 toast.error(res.message || "Failed to add goal.");
             }

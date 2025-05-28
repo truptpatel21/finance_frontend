@@ -99,7 +99,7 @@ export default function TransactionsPage() {
                     note: "",
                 });
                 fetchTransactions();
-                router.push("/"); // Refresh the page to show new transaction
+                router.push("/dashboard"); // Refresh the page to show new transaction
             } else {
                 toast.error(res.message || "Failed to add transaction.");
             }

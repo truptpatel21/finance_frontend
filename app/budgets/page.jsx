@@ -72,7 +72,7 @@ export default function BudgetsPage() {
                 toast.success("Budget added!");
                 setForm({ amount: "" });
                 fetchBudgets();
-                router.push("/")
+                router.push("/dashboard")
             } else {
                 toast.error(res.message || "Failed to add budget.");
             }
