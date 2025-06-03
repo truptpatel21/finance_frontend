@@ -127,6 +127,12 @@ export default function Login() {
               >
                 {loading ? "Logging in..." : "Login"}
               </button>
+
+              <Link href="/forgot-password" className="block text-center text-sm text-[var(--accent)] mt-2">
+                Forgot Password?
+              </Link>
+
+              
               <Link
                 href="/signup"
                 className="block text-center mt-4 text-[var(--secondary)] hover:text-[var(--accent)] text-sm"
