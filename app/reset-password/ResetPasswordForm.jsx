@@ -40,10 +40,13 @@ export default function ResetPasswordForm() {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#24243e] relative overflow-hidden">
+            {/* Decorative blurred circles */}
+            <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-teal-400 opacity-30 rounded-full blur-3xl z-0"></div>
+            <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-indigo-400 opacity-30 rounded-full blur-3xl z-0"></div>
             <ToastContainer />
-            <div className="p-8 shadow bg-white rounded w-96">
-                <h2 className="text-xl font-semibold mb-4">Reset Password</h2>
+            <div className="w-full max-w-md bg-white/20 backdrop-blur-lg shadow-2xl p-8 rounded-2xl border border-white/30 z-10">
+                <h2 className="text-2xl font-bold text-white mb-4 text-center drop-shadow">Reset Password</h2>
                 <Formik
                     initialValues={{ newPassword: "", confirmPassword: "" }}
                     validationSchema={passwordSchema}
@@ -56,22 +59,22 @@ export default function ResetPasswordForm() {
                                     type="password"
                                     name="newPassword"
                                     placeholder="Enter new password"
-                                    className="w-full px-3 py-2 border rounded"
+                                    className="w-full px-4 py-2.5 bg-white/80 text-[var(--foreground)] border-cool focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-opacity-50 placeholder-[var(--secondary)] rounded"
                                 />
-                                <ErrorMessage name="newPassword" component="div" className="text-sm text-red-500 mt-1" />
+                                <ErrorMessage name="newPassword" component="div" className="text-sm text-red-200 mt-1" />
                             </div>
                             <div className="mb-4">
                                 <Field
                                     type="password"
                                     name="confirmPassword"
                                     placeholder="Confirm new password"
-                                    className="w-full px-3 py-2 border rounded"
+                                    className="w-full px-4 py-2.5 bg-white/80 text-[var(--foreground)] border-cool focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-opacity-50 placeholder-[var(--secondary)] rounded"
                                 />
-                                <ErrorMessage name="confirmPassword" component="div" className="text-sm text-red-500 mt-1" />
+                                <ErrorMessage name="confirmPassword" component="div" className="text-sm text-red-200 mt-1" />
                             </div>
                             <button
                                 type="submit"
-                                className="bg-blue-600 text-white w-full py-2 rounded"
+                                className="w-full bg-[var(--accent)] text-white font-semibold py-3 hover-gradient disabled:opacity-50 rounded-xl shadow-lg"
                                 disabled={isSubmitting || !isValid}
                             >
                                 {isSubmitting ? "Submitting..." : "Submit"}

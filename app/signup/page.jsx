@@ -80,16 +80,19 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--background)] flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#24243e] relative overflow-hidden">
+      {/* Decorative blurred circles */}
+      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-teal-400 opacity-30 rounded-full blur-3xl z-0"></div>
+      <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-indigo-400 opacity-30 rounded-full blur-3xl z-0"></div>
       <ToastContainer theme="light" />
       {loading && (
         <div className="fixed inset-0 bg-[var(--background)]/80 flex items-center justify-center z-50">
           <div className="h-12 w-12 border-4 border-t-transparent border-[var(--accent)] rounded-full animate-spin" />
         </div>
       )}
-      <div className="w-full max-w-md bg-[var(--background)] shadow-cool p-8 rounded-xl">
-        <h2 className="text-3xl font-bold text-[var(--foreground)] mb-2 text-center">Create Your Account</h2>
-        <p className="text-center text-[var(--secondary)] mb-6">Join us to manage your finances with ease</p>
+      <div className="w-full max-w-md bg-white/20 backdrop-blur-lg shadow-2xl p-8 rounded-2xl border border-white/30 z-10">
+        <h2 className="text-3xl font-bold text-white mb-2 text-center drop-shadow">Create Your Account</h2>
+        <p className="text-center text-white/80 mb-6">Join us to manage your finances with ease</p>
         <Formik
           initialValues={{ name: "", email: "", password: "", confirmPassword: "", address: "" }}
           validationSchema={signupSchema}
@@ -99,7 +102,7 @@ export default function Signup() {
             <Form className="space-y-5">
               {["name", "email", "password", "confirmPassword", "address"].map((field) => (
                 <div key={field} className="relative">
-                  <label htmlFor={field} className="block text-[var(--foreground)] text-sm font-medium capitalize mb-1">
+                  <label htmlFor={field} className="block text-white/90 text-sm font-medium capitalize mb-1">
                     {field === "confirmPassword" ? "Confirm Password" : field}
                   </label>
                   <div className="relative flex items-center">
@@ -118,7 +121,7 @@ export default function Signup() {
                             : "text"
                       }
                       placeholder={`Enter ${field === "confirmPassword" ? "confirm password" : field}`}
-                      className="w-full px-4 py-2.5 bg-white text-[var(--foreground)] border-cool focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-opacity-50 placeholder-[var(--secondary)]"
+                      className="w-full px-4 py-2.5 bg-white/80 text-[var(--foreground)] border-cool focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-opacity-50 placeholder-[var(--secondary)] rounded"
                     />
                     {(field === "password" || field === "confirmPassword") && (
                       <button
@@ -128,7 +131,7 @@ export default function Signup() {
                             ? setShowPassword(!showPassword)
                             : setShowConfirmPassword(!showConfirmPassword)
                         }
-                        className="ml-2 px-2 py-1 text-sm text-[var(--secondary)] bg-white border-cool hover-gradient focus:outline-none"
+                        className="ml-2 px-2 py-1 text-sm text-[var(--secondary)] bg-[var(--accent)] rounded-md hover-gradient focus:outline-none"
                       >
                         {field === "password" ? (showPassword ? "🙈" : "🙉") : (showConfirmPassword ? "🙈" : "🙉")}
                       </button>
@@ -137,22 +140,22 @@ export default function Signup() {
                   <ErrorMessage
                     name={field}
                     component="div"
-                    className="text-sm text-red-500 mt-1"
+                    className="text-sm text-red-200 mt-1"
                   />
                 </div>
               ))}
               <button
                 type="submit"
                 disabled={loading || !isValid}
-                className="w-full bg-[var(--accent)] text-white font-semibold py-3 hover-gradient disabled:opacity-50 rounded-xl"
+                className="w-full bg-[var(--accent)] text-white font-semibold py-3 hover-gradient disabled:opacity-50 rounded-xl shadow-lg"
               >
                 {loading ? "Submitting..." : "Sign Up"}
               </button>
-              <p className="text-center text-[var(--secondary)] text-sm mt-4">
+              <p className="text-center text-white/80 text-sm mt-4">
                 Already have an account?{" "}
                 <Link
                   href="/login"
-                  className="text-[var(--accent)] hover:text-[var(--foreground)]"
+                  className="text-[var(--accent)] hover:text-white"
                 >
                   Login here
                 </Link>
