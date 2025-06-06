@@ -51,6 +51,8 @@ export default function Home() {
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
   const [notifications, setNotifications] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
+
 
   const debouncedYear = useDebounce(year, 500);
   const debouncedMonth = useDebounce(month, 500);
@@ -97,6 +99,7 @@ export default function Home() {
         fetchUpcomingRecurring(),
         fetchCashFlow(),
         fetchNotifications(),
+        fetchAllCategories(),
       ]);
     } catch (error) {
       toast.error("Failed to load dashboard data.");
@@ -104,6 +107,25 @@ export default function Home() {
       setLoading(false);
     }
   };
+
+  const fetchAllCategories = async () => {
+    try {
+      const res = await secureApiCall({
+        endpoint: "/api/category/list",
+        data: {},
+        token,
+        requiresAuth: true,
+      });
+      if (res.code === "1") {
+        setAllCategories(res.data);
+      } else {
+        setAllCategories([]);
+      }
+    } catch {
+      setAllCategories([]);
+    }
+  };
+  
 
   const fetchProfile = async () => {
     try {
@@ -860,10 +882,12 @@ export default function Home() {
             ) : upcomingRecurring.length > 0 ? (
               <div className="space-y-4">
                 {upcomingRecurring.map((rec, idx) => {
-                  const category = topCategories.find(
-                    (cat) => cat.category_id === rec.category_id || cat.id === rec.category_id
+                  const category = allCategories.find(
+                    (cat) => cat.id === rec.category_id
                   );
-                  const type = category?.type;
+                  const type = category?.type || "";
+                  const categoryName = category?.name || "Unknown";
+                  
                   return (
                     <motion.div
                       key={rec.id || idx}
@@ -872,12 +896,16 @@ export default function Home() {
                       data-tooltip-id="tooltip"
                       data-tooltip-content={`Due: ${new Date(rec.next_due_date).toLocaleDateString()}`}
                     >
-                      <div>
-                        <p className="text-sm text-gray-600">{rec.frequency} Transaction</p>
-                        <p className="text-lg font-semibold text-gray-800">
-                          ₹{Number(rec.amount || 0).toFixed(2)}
+                      <div className="space-y-1">
+                        <p className="text-sm text-gray-500 capitalize">{rec.frequency} Transaction</p>
+                        <p className="text-lg font-semibold text-gray-800">₹{Number(rec.amount || 0).toFixed(2)}</p>
+                        <p className="text-sm text-gray-500">
+                          Due: {new Date(rec.next_due_date).toLocaleDateString()}
                         </p>
+                        <p className="text-sm text-gray-500">Category: {categoryName}</p>
+                        <p className="text-sm text-gray-500">Type: {type}</p>
                       </div>
+
                       <span
                         className={`text-sm font-medium ${type === "income" ? "text-green-600" : "text-red-600"
                           }`}

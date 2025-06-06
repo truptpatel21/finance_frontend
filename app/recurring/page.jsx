@@ -282,7 +282,7 @@ export default function RecurringTransactionsPage() {
                 )}
                 <button
                     className="mt-8 w-full bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg hover:bg-gray-300 transition"
-                    onClick={() => router.push("/")}
+                    onClick={() => router.push("/dashboard")}
                 >
                     Back to Dashboard
                 </button>
