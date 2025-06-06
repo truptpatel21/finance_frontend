@@ -11,6 +11,8 @@ import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, T
 import { Bar, Doughnut } from "react-chartjs-2";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import SubscriptionSection from "@/app/components/SubscriptionSection";
+import FAQSection from "@/app/components/FAQSection";
 
 // Register Chart.js components
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
@@ -1221,6 +1223,11 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
+
+
+      <SubscriptionSection />
+      <FAQSection />
+      
     </main>
   );
 }

@@ -2,6 +2,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 
 import DynamicNavbar from "./components/DynamicNavbar";
+import Footer from "./components/Footer";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       >
         <DynamicNavbar />
         <main className="max-w-7xl mx-auto py-8 px-4">{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -928,13 +928,8 @@ export default function Home() {
         </svg>
       </motion.div>
 
-      <footer className="py-8 px-6 bg-gray-200 text-gray-900">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-sm">
-            © 2025 Financyy. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      
+
     </main>
   );
 }
