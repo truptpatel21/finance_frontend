@@ -149,14 +149,19 @@ export default function Home() {
 
   const fetchCategories = async () => {
     try {
-      const startDate = `${debouncedYear}-${debouncedMonth.toString().padStart(2, "0")}-01`;
-      const endDate = `${debouncedYear}-${debouncedMonth.toString().padStart(2, "0")}-31`;
+      const startDate = `${year}-${month.toString().padStart(2, "0")}-01`;
+      const lastDay = new Date(year, month, 0).getDate(); 
+      const endDate = `${year}-${month.toString().padStart(2, "0")}-${lastDay}`;
+
       const res = await secureApiCall({
         endpoint: "/api/analytics/top-categories",
         data: { start_date: startDate, end_date: endDate },
         token,
         requiresAuth: true,
       });
+
+      console.log("Top categories API response:", res); 
+
       setTopCategories(res.code === "1" ? res.data : []);
     } catch {
       setTopCategories([]);

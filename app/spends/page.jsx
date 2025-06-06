@@ -31,14 +31,18 @@ export default function TopCategoriesPage() {
     const fetchCategories = async () => {
         setLoading(true);
         try {
+            const lastDay = new Date(year, month, 0).getDate();
             const startDate = `${year}-${month.toString().padStart(2, "0")}-01`;
-            const endDate = `${year}-${month.toString().padStart(2, "0")}-31`;
+            const endDate = `${year}-${month.toString().padStart(2, "0")}-${lastDay}`;
+
             const res = await secureApiCall({
                 endpoint: "/api/analytics/top-categories",
                 data: { start_date: startDate, end_date: endDate },
                 token,
                 requiresAuth: true,
             });
+
+            console.log("Top categories API response:", res); // Optional: debug line
             setCategories(res.code === "1" ? res.data : []);
         } catch {
             toast.error("Failed to fetch top categories.");
@@ -47,6 +51,7 @@ export default function TopCategoriesPage() {
             setLoading(false);
         }
     };
+    
 
     const chartData = {
         labels: categories.map((cat) => cat.category),
