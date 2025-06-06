@@ -978,30 +978,30 @@ export default function Home() {
               </div>
             ) : cashFlow ? (
               <div className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <motion.div
-                    className="p-4 bg-gray-50 rounded-lg"
-                    whileHover={{ scale: 1.03 }}
-                    data-tooltip-id="dashboard-tooltip"
-                    data-tooltip-content="Expected Monthly Income"
-                  >
-                    <p className="text-sm text-gray-600">Recurring Expense</p>
-                    <p className="text-lg font-semibold text-red-600">
-                      ₹{Number(cashFlow.recurring_income || 0).toFixed(2)}
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    className="p-4 bg-gray-50 rounded-lg"
-                    whileHover={{ scale: 1.03 }}
-                    data-tooltip-id="dashboard-tooltip"
-                    data-tooltip-content="Expected Monthly Expenses"
-                  >
-                    <p className="text-sm text-gray-600">Recurring Income</p>
-                    <p className="text-lg font-semibold text-green-600">
-                      ₹{Number(cashFlow.recurring_expense || 0).toFixed(2)}
-                    </p>
-                  </motion.div>
-                </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <motion.div
+                      className="p-4 bg-gray-50 rounded-lg"
+                      whileHover={{ scale: 1.03 }}
+                      data-tooltip-id="dashboard-tooltip"
+                      data-tooltip-content="Expected Monthly Expense"
+                    >
+                      <p className="text-sm text-gray-600">Recurring Expense</p>
+                      <p className="text-lg font-semibold text-red-600">
+                        ₹{Number(cashFlow.recurring_expense || 0).toFixed(2)}
+                      </p>
+                    </motion.div>
+                    <motion.div
+                      className="p-4 bg-gray-50 rounded-lg"
+                      whileHover={{ scale: 1.03 }}
+                      data-tooltip-id="dashboard-tooltip"
+                      data-tooltip-content="Expected Monthly Income"
+                    >
+                      <p className="text-sm text-gray-600">Recurring Income</p>
+                      <p className="text-lg font-semibold text-green-600">
+                        ₹{Number(cashFlow.recurring_income || 0).toFixed(2)}
+                      </p>
+                    </motion.div>
+                  </div>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-8">
