@@ -15,19 +15,19 @@ export default function BlogPage() {
         },
         {
             title: "Understanding Financial Analytics",
-            excerpt: "Discover how Financyy’s analytics tools can help you make informed decisions.",
+            excerpt: "Discover how Finacyy’s analytics tools can help you make informed decisions.",
             category: "Analytics",
             date: "May 15, 2025",
         },
         {
             title: "Your Path to Financial Freedom",
-            excerpt: "Inspiring stories from users who achieved their goals with Financyy.",
+            excerpt: "Inspiring stories from users who achieved their goals with Finacyy.",
             category: "Stories",
             date: "April 20, 2025",
         },
         {
             title: "New Features Launched in 2025",
-            excerpt: "Explore the latest updates to the Financyy website for better financial management.",
+            excerpt: "Explore the latest updates to the Finacyy website for better financial management.",
             category: "Updates",
             date: "March 10, 2025",
         },
@@ -54,9 +54,9 @@ export default function BlogPage() {
             <div className="max-w-5xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Financyy Blog</h1>
+                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Finacyy Blog</h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Stay informed with financial tips, product updates, and inspiring stories from the Financyy website, launched in 2025 to empower your financial journey.
+                        Stay informed with financial tips, product updates, and inspiring stories from the Finacyy website, launched in 2025 to empower your financial journey.
                     </p>
                 </div>
 
@@ -108,7 +108,7 @@ export default function BlogPage() {
                 <div className="bg-white/95 rounded-2xl shadow-2xl p-10 text-center">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Subscribe to Our Newsletter</h2>
                     <p className="text-gray-600 mb-6 max-w-lg mx-auto">
-                        Get the latest financial tips and updates from Financyy delivered to your inbox.
+                        Get the latest financial tips and updates from Finacyy delivered to your inbox.
                     </p>
                     <form onSubmit={handleNewsletterSubmit} className="flex max-w-md mx-auto">
                         <input

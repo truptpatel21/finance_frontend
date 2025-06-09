@@ -6,12 +6,12 @@ export default function PrivacyPage() {
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Financyy Privacy Policy</h1>
+                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Finacyy Privacy Policy</h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Effective Date: June 6, 2025
                     </p>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
-                        At Financyy, your privacy is our priority. This Privacy Policy explains how our website collects, uses, and protects your personal information to help you manage your finances securely.
+                        At Finacyy, your privacy is our priority. This Privacy Policy explains how our website collects, uses, and protects your personal information to help you manage your finances securely.
                     </p>
                 </div>
 
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
                 <div className="bg-white/95 rounded-2xl shadow-2xl p-10">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-6">Our Privacy Commitment</h2>
                     <p className="text-gray-600 mb-6">
-                        Financyy’s website, launched in 2025, is designed to empower you with tools for budgeting and analytics. We are committed to safeguarding your data and ensuring transparency in how we handle your information.
+                        Finacyy’s website, launched in 2025, is designed to empower you with tools for budgeting and analytics. We are committed to safeguarding your data and ensuring transparency in how we handle your information.
                     </p>
 
                     <div className="space-y-8">

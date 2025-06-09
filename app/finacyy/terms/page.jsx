@@ -6,12 +6,12 @@ export default function TermsPage() {
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Financyy Terms of Service</h1>
+                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Finacyy Terms of Service</h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Effective Date: June 6, 2025
                     </p>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-2">
-                        By using the Financyy website, you agree to these Terms of Service. Please read them carefully to understand your rights and responsibilities.
+                        By using the Finacyy website, you agree to these Terms of Service. Please read them carefully to understand your rights and responsibilities.
                     </p>
                 </div>
 
@@ -19,7 +19,7 @@ export default function TermsPage() {
                 <div className="bg-white/95 rounded-2xl shadow-2xl p-10">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-6">Our Terms</h2>
                     <p className="text-gray-600 mb-6">
-                        These Terms of Service govern your use of the Financyy website, launched in 2025 to provide budgeting and analytics tools. By accessing our website, you agree to comply with these terms.
+                        These Terms of Service govern your use of the Finacyy website, launched in 2025 to provide budgeting and analytics tools. By accessing our website, you agree to comply with these terms.
                     </p>
 
                     <div className="space-y-8">
@@ -27,7 +27,7 @@ export default function TermsPage() {
                         <div>
                             <h3 className="text-xl font-medium text-blue-700 mb-2">1. Acceptance of Terms</h3>
                             <p className="text-gray-600">
-                                By accessing or using the Financyy website, you confirm that you are at least 18 years old and agree to be bound by these Terms of Service. If you do not agree, please do not use our website.
+                                By accessing or using the Finacyy website, you confirm that you are at least 18 years old and agree to be bound by these Terms of Service. If you do not agree, please do not use our website.
                             </p>
                         </div>
 
@@ -48,7 +48,7 @@ export default function TermsPage() {
                         <div>
                             <h3 className="text-xl font-medium text-blue-700 mb-2">3. Service Usage</h3>
                             <p className="text-gray-600">
-                                The Financyy website provides tools for budgeting and financial analytics. You agree not to:
+                                The Finacyy website provides tools for budgeting and financial analytics. You agree not to:
                             </p>
                             <ul className="list-disc pl-6 text-gray-600 mt-2">
                                 <li>Use the website for any unlawful or unauthorized purpose.</li>
@@ -61,7 +61,7 @@ export default function TermsPage() {
                         <div>
                             <h3 className="text-xl font-medium text-blue-700 mb-2">4. Intellectual Property</h3>
                             <p className="text-gray-600">
-                                All content on the Financyy website, including text, graphics, and software, is owned by Financyy or its licensors and is protected by intellectual property laws. You may use our tools for personal, non-commercial purposes only.
+                                All content on the Finacyy website, including text, graphics, and software, is owned by Finacyy or its licensors and is protected by intellectual property laws. You may use our tools for personal, non-commercial purposes only.
                             </p>
                         </div>
 
@@ -77,7 +77,7 @@ export default function TermsPage() {
                         <div>
                             <h3 className="text-xl font-medium text-blue-700 mb-2">6. Limitation of Liability</h3>
                             <p className="text-gray-600">
-                                Financyy provides its website on an “as-is” basis. We are not liable for:
+                                Finacyy provides its website on an “as-is” basis. We are not liable for:
                             </p>
                             <ul className="list-disc pl-6 text-gray-600 mt-2">
                                 <li>Any errors or interruptions in service.</li>

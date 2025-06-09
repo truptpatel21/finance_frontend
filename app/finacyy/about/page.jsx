@@ -4,7 +4,7 @@ export default function AboutPage() {
     const timeline = [
         {
             year: "2025",
-            event: "Financyy launched its website, empowering millions to achieve financial freedom through smart budgeting and analytics.",
+            event: "Finacyy launched its website, empowering millions to achieve financial freedom through smart budgeting and analytics.",
         },
     ];
 
@@ -13,9 +13,9 @@ export default function AboutPage() {
             <div className="max-w-5xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-blue-700 mb-4">About Financyy</h1>
+                    <h1 className="text-4xl font-bold text-blue-700 mb-4">About Finacyy</h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Financyy is a website dedicated to helping you achieve financial freedom with smart budgeting, insightful analytics, and easy-to-use tools. Our platform empowers everyone to take control of their finances and reach their goals.
+                        Finacyy is a website dedicated to helping you achieve financial freedom with smart budgeting, insightful analytics, and easy-to-use tools. Our platform empowers everyone to take control of their finances and reach their goals.
                     </p>
                 </div>
 

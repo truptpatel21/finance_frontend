@@ -43,7 +43,7 @@ export default function HelpPage() {
             <div className="max-w-4xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Financyy Help Center</h1>
+                    <h1 className="text-4xl font-bold text-blue-700 mb-4">Finacyy Help Center</h1>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         Get answers to your questions about managing your finances, setting budgets, or understanding analytics. We're here to help you succeed!
                     </p>

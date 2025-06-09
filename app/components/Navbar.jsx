@@ -73,18 +73,18 @@ export default function Navbar() {
                     className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-teal-500 to-purple-500 bg-clip-text text-transparent tracking-tight hover:scale-105 transition-transform duration-200"
                     style={{ letterSpacing: "0.01em" }}
                 >
-                    Financyy
+                    Finacyy
                 </Link>
                 <div className="hidden md:flex gap-2 items-center">
                     <Link
-                        href="/financyy/about"
+                        href="/finacyy/about"
                         className="px-4 py-2 rounded-lg text-blue-700 hover:bg-blue-100 hover:scale-105 transition-all duration-200"
                     >
                         About
                     </Link>
 
                     <Link
-                        href="/financyy/blogs"
+                        href="/finacyy/blogs"
                         className="px-4 py-2 rounded-lg text-blue-700 hover:bg-blue-100 hover:scale-105 transition-all duration-200"
                     >
                         Blog
@@ -153,7 +153,7 @@ export default function Navbar() {
             {isMenuOpen && (
                 <div className="md:hidden mt-4 bg-white/95 rounded-lg shadow-xl p-4 animate-slide-down">
                     <Link
-                        href="/financyy/about"
+                        href="/finacyy/about"
                         className="block px-4 py-2 text-blue-700 hover:bg-blue-50 rounded-lg"
                         onClick={toggleMenu}
                     >
@@ -161,7 +161,7 @@ export default function Navbar() {
                     </Link>
 
                     <Link
-                        href="/financyy/blogs"
+                        href="/finacyy/blogs"
                         className="block px-4 py-2 text-blue-700 hover:bg-blue-50 rounded-lg"
                         onClick={toggleMenu}
                     >
