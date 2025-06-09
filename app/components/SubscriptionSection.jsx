@@ -62,8 +62,28 @@ export default function SubscriptionSection() {
                 <h2 className="text-4xl font-bold mb-6 text-gradient">Upgrade to Premium</h2>
                 <p className="mb-10 text-lg">Choose the best plan to suit your financial goals.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
                     {plans.map((plan, i) => {
                         const isCurrent = user?.subscription_plan === plan.title.toLowerCase();
+                        let buttonText = "Subscribe";
+                        if (isCurrent) buttonText = "Current Plan";
+                        else if (
+                            user?.subscription_plan === "pro" &&
+                            plan.title.toLowerCase() === "elite"
+                        ) buttonText = "Upgrade";
+                        else if (
+                            user?.subscription_plan === "elite" &&
+                            plan.title.toLowerCase() === "pro"
+                        ) buttonText = "Downgrade";
+                        else if (
+                            user?.subscription_plan === "elite" &&
+                            plan.title.toLowerCase() === "free"
+                        ) buttonText = "Downgrade";
+                        else if (
+                            user?.subscription_plan === "pro" &&
+                            plan.title.toLowerCase() === "free"
+                        ) buttonText = "Downgrade";
+
                         return (
                             <div key={i} className="card-glass p-6 rounded-xl text-left">
                                 <h3 className="text-2xl font-semibold mb-2">{plan.title}</h3>
@@ -79,22 +99,19 @@ export default function SubscriptionSection() {
                                         </li>
                                     ))}
                                 </ul>
-                                {isCurrent ? (
-                                    <button disabled className="bg-gray-300 text-gray-600 px-4 py-2 rounded w-full cursor-not-allowed">
-                                        Current Plan
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => handleSubscribe(plan.title.toLowerCase())}
-                                        className="btn-gradient px-4 py-2 rounded w-full font-medium"
-                                        disabled={submitting}
-                                    >
-                                        {submitting ? "Processing..." : "Subscribe"}
-                                    </button>
-                                )}
+                                <button
+                                    onClick={() => {
+                                        if (!isCurrent) router.push("/subscribe");
+                                    }}
+                                    className={`px-4 py-2 rounded w-full font-medium ${isCurrent ? "bg-gray-300 text-gray-600 cursor-not-allowed" : "btn-gradient"}`}
+                                    disabled={isCurrent}
+                                >
+                                    {submitting && !isCurrent ? "Processing..." : buttonText}
+                                </button>
                             </div>
                         );
                     })}
+                
                 </div>
             </div>
         </section>

@@ -312,6 +312,16 @@ export default function Home() {
     if ((barChartImg?.length || 0) > 200000) barChartImg = null;
     if ((doughnutChartImg?.length || 0) > 200000) doughnutChartImg = null;
 
+    console.log("Sending report data:", {
+      year,
+      month,
+      barChartImg,
+      doughnutChartImg,
+      email: userProfile?.user?.email,
+      user_name: userProfile?.user?.name || "User",
+      summary: monthlySummary,
+    });
+
 
     setLoading(true);
     try {
@@ -324,11 +334,14 @@ export default function Home() {
           doughnutChartImg,
           email: userProfile?.user?.email, 
           user_name: userProfile?.user?.name || "User",
+          summary: monthlySummary
         },
         token,
         requiresAuth: true,
         responseType: "blob", 
       });
+      
+      
 
       if (res && res instanceof Blob) {
         // Download PDF
@@ -507,6 +520,43 @@ export default function Home() {
             </motion.div>
           )}
         </motion.div>
+
+        <div className="flex justify-start mb-6">
+          <div className="bg-white rounded-xl shadow flex flex-col sm:flex-row items-stretch gap-0 sm:gap-8 px-8 py-5 min-w-[340px] w-full sm:w-auto">
+            {/* Current Plan */}
+            <div className="flex flex-col items-center sm:items-start flex-1">
+              <span className="text-gray-700 text-base mb-1">Current Plan</span>
+              <span className="font-extrabold text-2xl text-blue-700 tracking-wide mb-1">
+                {userProfile?.user?.subscription_plan?.toUpperCase() || "FREE"}
+              </span>
+              <span className="text-xs text-gray-500 mb-2">
+                {userProfile?.user?.subscription_plan === "elite" && "All features unlocked"}
+                {userProfile?.user?.subscription_plan === "pro" && "Pro features enabled"}
+                {(!userProfile?.user?.subscription_plan || userProfile?.user?.subscription_plan === "free") && "Limited features"}
+              </span>
+              <button
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold text-base shadow hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-400 mt-2 sm:mt-4 w-full sm:w-auto"
+                onClick={() => router.push("/subscribe")}
+              >
+                View Plans & Compare
+              </button>
+            </div>
+            {/* Other Plans */}
+            <div className="hidden sm:flex flex-col justify-center border-l border-gray-200 pl-8 min-w-[220px]">
+              <span className="text-gray-700 font-semibold mb-2">Other Plans</span>
+              <div className="mb-2">
+                <span className="font-bold text-blue-500">PRO</span>
+                <span className="ml-2 text-xs text-gray-500">Advanced features, analytics, and reports</span>
+              </div>
+              <div>
+                <span className="font-bold text-gray-400">FREE</span>
+                <span className="ml-2 text-xs text-gray-500">Basic features, limited analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="section-divider mb-8"></div>
 
         {/* Month/Year Selector */}
         <motion.div
@@ -1225,6 +1275,10 @@ export default function Home() {
 
           <div className="section-divider" />
 
+          <SubscriptionSection />
+
+          <div className="section-divider" />
+
 
           {["pro", "elite"].includes(userProfile?.user?.subscription_plan) && (
             <motion.div
@@ -1343,7 +1397,7 @@ export default function Home() {
       </div>
 
 
-      <SubscriptionSection />
+      
       <FAQSection />
       
     </main>
