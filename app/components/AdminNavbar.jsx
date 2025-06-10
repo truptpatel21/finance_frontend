@@ -61,7 +61,12 @@ export default function AdminNavbar() {
                     <span className="text-2xl font-bold text-blue-700 tracking-tight">Finaccy Admin</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    
+                    <Link href="/admin" className="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-blue-100 transition">
+                        Home
+                    </Link>
+                    <Link href="/admin/subscription" className="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-blue-100 transition">
+                        Subscriptions
+                    </Link>
                     <button
                         onClick={handleLogout}
                         className="px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition"
