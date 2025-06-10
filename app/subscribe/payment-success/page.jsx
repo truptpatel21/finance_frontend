@@ -1,8 +1,8 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, Suspense } from "next/navigation";
 import { useEffect } from "react";
 
-export default function PaymentSuccess() {
+function SuccessContent() {
     const router = useRouter();
     const params = useSearchParams();
     const plan = params.get("plan");
@@ -17,5 +17,13 @@ export default function PaymentSuccess() {
             <div className="mb-4">Your {plan?.toUpperCase()} plan is now active.</div>
             <div className="text-gray-500">Redirecting to Subscription Page...</div>
         </main>
+    );
+}
+
+export default function PaymentSuccess() {
+    return (
+        <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+            <SuccessContent />
+        </Suspense>
     );
 }
