@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 import { secureApiCall } from "@/utils/api";
 import { toast } from "react-toastify";
 
+import { useRouter } from "next/navigation";
+
 const plans = [
     {
         name: "Free",
@@ -90,6 +92,7 @@ function getPlanOrder(value) {
 }
 
 export default function SubscribePage() {
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [currentPlan, setCurrentPlan] = useState(null);
 
@@ -109,49 +112,6 @@ export default function SubscribePage() {
         };
         fetchCurrentPlan();
     }, []);
-
-    const handleSubscribe = async (plan) => {
-        if (plan === currentPlan) {
-            toast.info("You are already on this plan!");
-            return;
-        }
-        setLoading(true);
-        try {
-            const token = Cookies.get("token");
-            // If downgrading to free, call a downgrade endpoint
-            if (plan === "free") {
-                const res = await secureApiCall({
-                    endpoint: "/api/subscription/downgrade",
-                    data: {},
-                    token,
-                    requiresAuth: true,
-                });
-                if (res.code === "1") {
-                    toast.success("Successfully downgraded to Free plan.");
-                    setCurrentPlan("free");
-                } else {
-                    toast.error(res.message || "Failed to downgrade.");
-                }
-            } else {
-                // Upgrading or switching paid plan
-                const res = await secureApiCall({
-                    endpoint: "/api/stripe/session",
-                    data: { plan },
-                    token,
-                    requiresAuth: true,
-                });
-                if (res.url) {
-                    window.location.href = res.url;
-                } else {
-                    toast.error("Failed to start subscription.");
-                }
-            }
-        } catch (err) {
-            toast.error("Error updating subscription.");
-        } finally {
-            setLoading(false);
-        }
-    };
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center py-12">
@@ -227,7 +187,7 @@ export default function SubscribePage() {
                                             : "bg-blue-600 hover:bg-blue-700"
                                     }`}
                                 disabled={loading || isCurrent}
-                                onClick={() => handleSubscribe(plan.value)}
+                                onClick={() => router.push(`/subscribe/switch?target=${plan.value}`)}
                             >
                                 {isCurrent ? "Current Plan" : loading ? "Processing..." : buttonText}
                             </button>
