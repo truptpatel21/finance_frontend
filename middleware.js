@@ -4,7 +4,9 @@ export function middleware(request) {
   const token = request.cookies.get('token')?.value;
   const role = request.cookies.get("user")?.value;
   // console.log("Role*****************", role)
-  const protectedRoutes = ['/transactions', '/analytics','/budgets', '/goals' , '/notifications', '/profile', '/recurring', '/spends']; 
+  const protectedRoutes = ['/transactions', '/analytics', '/budgets', '/goals', '/notifications', '/profile', '/recurring', '/spends', 'dashboard', '/subscribe', '/subscribe/success', '/subscribe/canceled'
+    , 'subscribe/payment', 'reset-password', 'transactions'
+  ]; 
   const publicRoutes = ['/signup', '/login'];
   const adminRoutes = ['/admin']
 

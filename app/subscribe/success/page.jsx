@@ -1,7 +1,8 @@
 "use client";
 export const dynamic = "force-dynamic";
-import { useRouter, useSearchParams, Suspense } from "next/navigation";
+import { useRouter, useSearchParams} from "next/navigation";
 import { useEffect } from "react";
+import { Suspense } from "react";
 
 function SuccessContent() {
     const router = useRouter();
