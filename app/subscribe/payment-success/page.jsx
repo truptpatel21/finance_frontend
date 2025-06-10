@@ -14,7 +14,7 @@ function SuccessContent() {
     return (
         <main className="max-w-lg mx-auto p-8 bg-white rounded-xl shadow mt-10 text-center">
             <h2 className="text-2xl font-bold mb-4 text-green-700">Payment Successful!</h2>
-            <div className="mb-4">Your {plan?.toUpperCase()} plan is now active.</div>
+            <div className="mb-4">Your {plan?.toUpperCase() || "plan"} is now active.</div>
             <div className="text-gray-500">Redirecting to Subscription Page...</div>
         </main>
     );
