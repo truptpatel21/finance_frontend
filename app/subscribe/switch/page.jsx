@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { secureApiCall } from "@/utils/api";
@@ -12,7 +12,7 @@ function getPlanOrder(value) {
     return -1;
 }
 
-export default function SubscriptionSwitchPage() {
+function SubscriptionSwitchContent() {
     const params = useSearchParams();
     const router = useRouter();
     const targetPlan = params.get("target");
@@ -57,7 +57,6 @@ export default function SubscriptionSwitchPage() {
 
     if (loading || !preview) return <div className="p-8 text-center">Loading...</div>;
 
-    // Determine if payment is needed
     const currentOrder = getPlanOrder(preview.currentPlan);
     const targetOrder = getPlanOrder(preview.targetPlan);
     const isUpgrade = targetOrder > currentOrder;
@@ -72,7 +71,6 @@ export default function SubscriptionSwitchPage() {
             <div className="mb-4">
                 <div>
                     <b>Current Plan:</b> {preview.currentPlan?.toUpperCase()}
-                    {/* Only show expiry if current plan is not free */}
                     {preview.currentPlan !== "free" && preview.expiry && (
                         <span className="ml-2 text-gray-500 text-sm">
                             (expires: {new Date(preview.expiry).toLocaleDateString()})
@@ -85,10 +83,8 @@ export default function SubscriptionSwitchPage() {
             </div>
             <div className="mb-6 p-4 bg-blue-50 rounded">{preview.message}</div>
 
-            {/* Upgrade or paid downgrade (elite→pro): show payment */}
             {(isUpgrade || (isDowngrade && isPaidPlan && !isDowngradeToFree)) && (
                 <div>
-                    {/* Stripe payment UI here */}
                     <button
                         className="btn-gradient px-6 py-2 rounded"
                         onClick={() => router.push(`/subscribe/payment?plan=${preview.targetPlan}`)}
@@ -98,7 +94,6 @@ export default function SubscriptionSwitchPage() {
                 </div>
             )}
 
-            {/* Downgrade to free: show confirm */}
             {isDowngradeToFree && (
                 <div>
                     <div className="mb-2 text-yellow-700">
@@ -114,12 +109,19 @@ export default function SubscriptionSwitchPage() {
                 </div>
             )}
 
-            {/* Already on this plan */}
             {preview.action === "current" && (
                 <div>
                     <div className="text-green-600">You are already on this plan.</div>
                 </div>
             )}
         </main>
+    );
+}
+
+export default function SubscriptionSwitchPage() {
+    return (
+        <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+            <SubscriptionSwitchContent />
+        </Suspense>
     );
 }
